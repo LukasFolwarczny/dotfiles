@@ -1,0 +1,79 @@
+My vim cheatsheet I made after reading http://www.nti.tul.cz/~satrapa/docs/vim/
+
+Movement
+	h j k l
+	home = 0, line begin ^, end $
+	nG jump to row n
+	n| jump to column n
+	fx Fx  tx Tx search character on the line ; , repeat search
+	n%
+	w, W beginning of next word
+	e, E end of this word
+	b, B nejbližší předchozí začátek slova
+	( ) beginning, end of a sentence věty
+	{ } beginning, end of a paragraph
+	% matching pair construction
+	+ - row movement
+
+Edit
+	o O a A i I
+	u undo
+	U undo all changes on last edited line
+	Ctrl-R redo					
+	> shift right vpravo < left
+	x X
+	d delete (with move)
+	p P paste
+	c change
+	s substitue
+	y yank, yy yank a line
+	g~ a<->A
+	gu -> a
+	gU -> A
+	. repeat last editation command
+	J join lines
+
+Search
+	/ forward ? backwards
+	* # occurences of current word
+	n N repeat most recent search
+
+Regexes
+	. * \+ \= \< \> \( \) \| \n \2 \_^ \_$
+	<rows>s/<what_to_search>/<substitute_with>/<options> g - all, c - confirmation
+	
+Misc
+	Ctrl-a Ctrl-x {in|de}crement
+
+Commands
+	:e edit other file
+	gf edit file whose name is under cursor
+	:r file  insert another file
+	:r !command	insert command output
+	:w >>
+	:w !command	filter through external command
+	:!command
+	:sh
+
+Selection
+	v V Ctrl-V
+	gv reselect recently selected block
+	o move to other end of selection
+
+Format
+	gqj, gq} reformat, gqap
+
+Word completion
+	Základní: Ctrl-N, Ctrl-P
+	Ctrl-X, Ctrl-L - row with the same beginning
+	Ctrl-X, Ctrl-K - search in dictionary
+	Ctrl-X, Ctrl-I - search in included files
+	Ctrl-X, Ctrl-F - file name
+
+Windows
+	vim -o
+	:split file
+	:vsplit
+	Ctrl-W Ctrl-W
+	Ctrl-W way
+	vim -p - panels
