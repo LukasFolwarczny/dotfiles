@@ -318,6 +318,13 @@ add_binds("normal", {
         function (w) w:enter_cmd(":winopen " .. (w.view.uri or "")) end),
 
     -- History
+    -- "b" and "v" are my shortcuts, not present in default configuration
+    key({}, "b", "Go back in the browser history `[count=1]` items.",
+        function (w, m) w:back(m.count) end),
+
+    key({}, "v", "Go forward in the browser history `[count=1]` times.",
+        function (w, m) w:forward(m.count) end),
+
     key({}, "H", "Go back in the browser history `[count=1]` items.",
         function (w, m) w:back(m.count) end),
 
@@ -350,6 +357,10 @@ add_binds("normal", {
         function (w) w:prev_tab() end),
 
     buf("^gT$", "Go to previous tab.",
+        function (w) w:prev_tab() end),
+
+    -- gr is my own shortcut
+    buf("^gr$", "Go to previous tab.",
         function (w) w:prev_tab() end),
 
     buf("^gt$", "Go to next tab (or `[count]` nth tab).",
