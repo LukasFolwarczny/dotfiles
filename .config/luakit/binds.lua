@@ -318,7 +318,7 @@ add_binds("normal", {
         function (w) w:enter_cmd(":winopen " .. (w.view.uri or "")) end),
 
     -- History
-    -- "b" and "v" are my shortcuts, not present in default configuration
+    -- "b" and "v" are my shortcuts, not present in default configuration. LF
     key({}, "b", "Go back in the browser history `[count=1]` items.",
         function (w, m) w:back(m.count) end),
 
@@ -359,7 +359,7 @@ add_binds("normal", {
     buf("^gT$", "Go to previous tab.",
         function (w) w:prev_tab() end),
 
-    -- gr is my own shortcut
+    -- gr is my own shortcut. LF
     buf("^gr$", "Go to previous tab.",
         function (w) w:prev_tab() end),
 
@@ -482,6 +482,29 @@ for i=1,10 do
         key({"Mod1"}, tostring(i % 10), "Jump to tab at index "..i..".",
             function (w) w.tabs:switch(i) end))
 end
+-- My passage to enable Mod1 + {1,2,3,...} tab switching on czech keyboard. LF
+i = 1
+table.insert(mod1binds, key({"Mod1"}, "+", "Jump to tab at index 1.",
+    function (w) w.tabs:switch(1) end))
+table.insert(mod1binds, key({"Mod1"}, "ě", "Jump to tab at index 2.",
+    function (w) w.tabs:switch(2) end))
+table.insert(mod1binds, key({"Mod1"}, "š", "Jump to tab at index 3.",
+    function (w) w.tabs:switch(3) end))
+table.insert(mod1binds, key({"Mod1"}, "č", "Jump to tab at index 4.",
+    function (w) w.tabs:switch(4) end))
+table.insert(mod1binds, key({"Mod1"}, "ř", "Jump to tab at index 5.",
+    function (w) w.tabs:switch(5) end))
+table.insert(mod1binds, key({"Mod1"}, "ž", "Jump to tab at index 6.",
+    function (w) w.tabs:switch(6) end))
+table.insert(mod1binds, key({"Mod1"}, "ý", "Jump to tab at index 7.",
+    function (w) w.tabs:switch(7) end))
+table.insert(mod1binds, key({"Mod1"}, "á", "Jump to tab at index 8.",
+    function (w) w.tabs:switch(8) end))
+table.insert(mod1binds, key({"Mod1"}, "í", "Jump to tab at index 9.",
+    function (w) w.tabs:switch(9) end))
+table.insert(mod1binds, key({"Mod1"}, "é", "Jump to tab at index 10.",
+    function (w) w.tabs:switch(10) end))
+
 add_binds("normal", mod1binds)
 
 -- Command bindings which are matched in the "command" mode from text
