@@ -54,8 +54,11 @@ search_engines = {
     duckduckgo  = "https://duckduckgo.com/?q=%s",
     github      = "https://github.com/search?q=%s",
     google      = "https://google.com/search?q=%s",
-    imdb        = "http://www.imdb.com/find?s=all&q=%s",
     wikipedia   = "https://en.wikipedia.org/wiki/Special:Search?search=%s",
+    wi          = "https://en.wikipedia.org/wiki/Special:Search?search=%s",
+    yt          = "https://youtube.com/results?search_query=%s",
+    ulozto      = "https://uloz.to/hledej?q=%s",
+    csfd        = "https://csfd.cz/hledat/?q=%s",
 }
 
 -- Set google as fallback search engine
