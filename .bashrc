@@ -23,7 +23,7 @@ alias lal='ls -hal --color=auto'
 alias e='exit'
 alias wifi='sudo wifi-menu wlp4s0'
 alias ..='cd ..'
-alias ',,'='cd $OLDPWD'
+alias ',,'='cd "$OLDPWD"'
 alias velikost='du -hd 1'
 
 # History completion
