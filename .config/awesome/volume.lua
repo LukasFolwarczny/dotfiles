@@ -13,18 +13,26 @@ function update_volume(widget)
    fd:close()
 
    local volume = string.match(status, "(%d?%d?%d)%%")
-   volume = string.format("% 3d", volume)
 
-   status = string.match(status, "%[(o[^%]]*)%]")
+   -- BUG FIX (after switching to another virtual console, volume is nil,
+   -- script was throwing errors)
+   if volume ~= nil then
+       os.execute("echo '" .. volume .. "' >> ~/tmppp");
+       volume = string.format("% 3d", volume)
 
-   if string.find(status, "on", 1, true) then
-   -- For the volume number percentage
-       volume = volume .. "%"
-   else
-   -- For displaying the mute status.
-       volume = volume .. "M"
+       status = string.match(status, "%[(o[^%]]*)%]")
 
-   end
+       if string.find(status, "on", 1, true) then
+       -- For the volume number percentage
+           volume = volume .. "%"
+       else
+       -- For displaying the mute status.
+           volume = volume .. "M"
+       end
+    else
+	volume = "N/A"
+    end
+
    widget:set_markup(volume)
 end
 
