@@ -274,7 +274,23 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+    awful.key({ modkey }, "p", function() menubar.show() end),
+
+    -- By Folwar
+    awful.key({ modkey }, "F2", function() awful.util.spawn("mocp -G", false) end), 
+        -- toggle pause/play
+
+    awful.key({ modkey }, "F3", function() awful.util.spawn("amixer sset Master toggle", false) end),
+    awful.key({ modkey }, "F4", function() awful.util.spawn("amixer set Master 5%-", false) end),
+    awful.key({ modkey }, "F5", function() awful.util.spawn("amixer set Master 5%+", false) end),
+
+    awful.key({ modkey }, "F6", function() awful.util.spawn("mocp -r", false) end),
+    awful.key({ modkey }, "F7", function() awful.util.spawn("mocp -f", false) end),
+
+    awful.key({ modkey }, "F9", function() awful.util.spawn("luakit") end),
+    awful.key({ modkey }, "F10", function() awful.util.spawn("thunderbird") end),
+    awful.key({ modkey }, "F11", function() awful.util.spawn("skype") end),
+    awful.key({ modkey }, "F12", function() awful.util.spawn("urxvt -e mocp") end)
 )
 
 clientkeys = awful.util.table.join(
