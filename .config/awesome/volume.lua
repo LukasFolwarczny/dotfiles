@@ -17,7 +17,6 @@ function update_volume(widget)
    -- BUG FIX (after switching to another virtual console, volume is nil,
    -- script was throwing errors)
    if volume ~= nil then
-       os.execute("echo '" .. volume .. "' >> ~/tmppp");
        volume = string.format("% 3d", volume)
 
        status = string.match(status, "%[(o[^%]]*)%]")
