@@ -280,20 +280,30 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end),
 
     -- By Folwar
+    awful.key({ }, "XF86AudioPlay", function() awful.util.spawn("mocp -G", false) end),
     awful.key({ modkey }, "F2", function() awful.util.spawn("mocp -G", false) end), 
         -- toggle pause/play
 
     awful.key({ modkey }, "F3", function() awful.util.spawn("amixer sset Master toggle", false) end),
+    awful.key({ }, "XF86AudioMute", function() awful.util.spawn("amixer sset Master toggle", false) end),
     awful.key({ modkey }, "F4", function() awful.util.spawn("amixer set Master 5%-", false) end),
     awful.key({ modkey }, "F5", function() awful.util.spawn("amixer set Master 5%+", false) end),
+    awful.key({ }, "XF86AudioLowerVolume", function() awful.util.spawn("amixer set Master 2%-", false) end),
+    awful.key({ }, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer set Master 2%+", false) end),
 
+
+    awful.key({ }, "XF86AudioPrev", function() awful.util.spawn("mocp -r", false) end),
     awful.key({ modkey }, "F6", function() awful.util.spawn("mocp -r", false) end),
+    awful.key({ }, "XF86AudioNext", function() awful.util.spawn("mocp -f", false) end),
     awful.key({ modkey }, "F7", function() awful.util.spawn("mocp -f", false) end),
 
     awful.key({ modkey }, "F9", function() awful.util.spawn("luakit") end),
     awful.key({ modkey }, "F10", function() awful.util.spawn("thunderbird") end),
     awful.key({ modkey }, "F11", function() awful.util.spawn("skype") end),
-    awful.key({ modkey }, "F12", function() awful.util.spawn("urxvt -e mocp") end)
+    awful.key({ modkey }, "F12", function() awful.util.spawn("urxvt -e mocp") end),
+    awful.key({ }, "XF86Tools", function() awful.util.spawn("urxvt -e mocp") end),
+
+    awful.key({ }, "XF86Sleep", function() awful.util.spawn("suspend") end)
 )
 
 clientkeys = awful.util.table.join(
