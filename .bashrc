@@ -29,3 +29,11 @@ alias velikost='du -hd 1'
 # History completion
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
+
+function man() {
+    if [ "$1" = forst ]; then
+        echo yes;
+    else
+	/usr/bin/man "$@";
+    fi 
+}
