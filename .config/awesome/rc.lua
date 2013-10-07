@@ -298,9 +298,11 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "F7", function() awful.util.spawn("mocp -f", false) end),
 
     awful.key({ modkey }, "F9", function() awful.util.spawn("luakit") end),
+    awful.key({ modkey, "Shift" }, "F9", function() awful.util.spawn("chromium") end),
     awful.key({ modkey }, "F10", function() awful.util.spawn("thunderbird") end),
     awful.key({ modkey }, "F11", function() awful.util.spawn("skype") end),
     awful.key({ modkey }, "F12", function() awful.util.spawn("urxvt -e mocp") end),
+    awful.key({ modkey }, "`", function() awful.util.spawn("awsetbg /home/lukas/.config/awesome/theme/wallpaper.jpg") end),
     awful.key({ }, "XF86Tools", function() awful.util.spawn("urxvt -e mocp") end),
 
     awful.key({ }, "XF86Sleep", function() awful.util.spawn("suspend") end)
