@@ -1,0 +1,7 @@
+Some of the setting necessary to run the scripts here properly:
+
+directories
+	~/.folwar must exist
+
+sudo
+	sudo ed /etc/X11/xorg.conf - NOPASSWD

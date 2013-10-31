@@ -1,3 +1,13 @@
 #!/bin/sh
-cp ~/.config/awesome/theme/yk/`ls ~/.config/awesome/theme/yk | sort -R | head -n 1` \
+if [ "$MONITOR" = CUSTOM ]; then
+	exit 0
+fi
+
+WDIR=~/.config/awesome/theme/yk/
+
+if [ "$MONITOR" = FULLHD  -o "$MONITOR" = "NTB+FULLHD" ]; then
+    WDIR=~/.config/awesome/theme/ykhd/
+fi
+
+cp $WDIR/`ls $WDIR | sort -R | head -n 1` \
 ~/.config/awesome/theme/wallpaper.jpg

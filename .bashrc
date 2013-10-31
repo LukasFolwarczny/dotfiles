@@ -46,3 +46,30 @@ function man() {
 	/usr/bin/man "$@";
     fi 
 }
+
+function setmonitor() {
+
+if [ -z "$1" ]; then
+	echo "Available monitor options: FULLHD, NTB, NTB+FULLHD, CUSTOM"
+	return 0
+fi
+
+MONITOR="$1"
+echo "$MONITOR" > .folwar/monitor
+
+if [ "$MONITOR" != CUSTOM ]; then
+
+OPTION='"metamodes" "VGA-0: NULL, LVDS-0: nvidia-auto-select +0+0"'
+
+[ "$MONITOR" = FULLHD ] && \
+	OPTION='"metamodes" "VGA-0: nvidia-auto-select +0+0, LVDS-0: NULL"'
+[ "$MONITOR" = "NTB+FULLHD" ] && \
+	OPTION='"metamodes" "VGA-0: nvidia-auto-select +0+0, LVDS-0: nvidia-auto-select +0+0"'
+
+sudo ed /etc/X11/xorg.conf << EOF
+,s/^    Option.*"metamodes".*$/    Option         $OPTION/g
+,w
+EOF
+
+fi
+}
