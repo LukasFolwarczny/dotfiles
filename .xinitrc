@@ -18,6 +18,6 @@ dropboxd &
 ~/.config/awesome/theme/set-wallpaper.sh
 xscreensaver -no-splash &
 
-keyboard-ucw
+setxkbmap -layout "ucw, cz" -rules evdev -option "grp:alt_shift_toggle,lv3:caps"
 
 exec awesome
