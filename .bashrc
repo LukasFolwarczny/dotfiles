@@ -28,6 +28,13 @@ alias keyboard-cz='setxkbmap -layout "cz, us" -option "grp:alt_shift_toggle"'
 alias keyboard-ucw='setxkbmap -layout "ucw, cz" -rules evdev -option \
 "grp:alt_shift_toggle,lv3:caps"'
 
+alias gP='git pull'
+alias gPs='git push'
+alias gC='git commit'
+alias gS='git status'
+alias gD='git diff'
+alias gA='git add'
+
 
 # History completion
 bind '"\e[A": history-search-backward'
