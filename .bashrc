@@ -68,6 +68,9 @@ if [ "$MONITOR" != CUSTOM ]; then
 
 OPTION='"metamodes" "VGA-0: NULL, LVDS-0: nvidia-auto-select +0+0"'
 
+[ "$MONITOR" = "FULLHD+NTB" ] && \
+	MONITOR="NTB+FULLHD"
+
 [ "$MONITOR" = FULLHD ] && \
 	OPTION='"metamodes" "VGA-0: nvidia-auto-select +0+0, LVDS-0: NULL"'
 [ "$MONITOR" = "NTB+FULLHD" ] && \
