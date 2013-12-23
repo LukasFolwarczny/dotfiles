@@ -305,7 +305,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "`", function() awful.util.spawn("awsetbg /home/lukas/.config/awesome/theme/wallpaper.jpg") end),
     awful.key({ }, "XF86Tools", function() awful.util.spawn("urxvt -e mocp") end),
 
-    awful.key({ }, "XF86Sleep", function() awful.util.spawn("suspend") end)
+    awful.key({ }, "XF86Sleep", function() awful.util.spawn("suspend") end),
+
+    awful.key({ modkey, "Shift", "Control" }, "l", function() awful.util.spawn("xscreensaver-command --lock", false) end )
 )
 
 clientkeys = awful.util.table.join(
