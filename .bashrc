@@ -31,9 +31,11 @@ alias keyboard-ucw='setxkbmap -layout "ucw, cz" -rules evdev -option \
 alias gP='git pull'
 alias gPs='git push'
 alias gC='git commit'
+alias gCh='git checkout'
 alias gS='git status'
 alias gD='git diff'
 alias gA='git add'
+alias gL='git log'
 
 
 # History completion
