@@ -87,3 +87,6 @@ EOF
 
 	fi
 }
+
+# Configuration specific for a single machine
+[ -f ~/.bashrc_local ] && source ~/.bashrc_local
