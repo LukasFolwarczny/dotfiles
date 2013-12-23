@@ -45,43 +45,45 @@ bind '"\e[B": history-search-forward'
 alias poznamky='vim ~/notes/NOTES'
 alias ukoly='cat ~/notes/TODO'
 function zaukoluj() {
-    echo "$@" >> ~/notes/TODO
+	echo "$@" >> ~/notes/TODO
 }
 
 function man() {
-    if [ "$1" = forst ]; then
-        echo yes;
-    else
-	/usr/bin/man "$@";
-    fi 
+	if [ "$1" = forst ]; then
+		echo yes;
+	else
+		/usr/bin/man "$@";
+	fi
 }
 
 function setmonitor() {
 
-if [ -z "$1" ]; then
-	echo "Available monitor options: FULLHD, NTB, NTB+FULLHD, CUSTOM"
-	return 0
-fi
+	if [ -z "$1" ]; then
+		echo "Available monitor options: FULLHD, NTB, NTB+FULLHD, CUSTOM"
+		return 0
+	fi
 
-MONITOR="$1"
-echo "$MONITOR" > .folwar/monitor
+	MONITOR="$1"
+	echo "$MONITOR" > ~/.folwar/monitor
 
-if [ "$MONITOR" != CUSTOM ]; then
+	if [ "$MONITOR" != CUSTOM ]; then
 
-OPTION='"metamodes" "VGA-0: NULL, LVDS-0: nvidia-auto-select +0+0"'
+		OPTION='"metamodes" "VGA-0: NULL, LVDS-0: nvidia-auto-select +0+0"'
 
-[ "$MONITOR" = "FULLHD+NTB" ] && \
-	MONITOR="NTB+FULLHD"
+		if [ "$MONITOR" = "FULLHD+NTB" ]; then
+			MONITOR="NTB+FULLHD"
+		fi
+		if [ "$MONITOR" = FULLHD ]; then
+			OPTION='"metamodes" "VGA-0: nvidia-auto-select +0+0, LVDS-0: NULL"'
+		fi
+		if [ "$MONITOR" = "NTB+FULLHD" ]; then
+			OPTION='"metamodes" "VGA-0: nvidia-auto-select +0+0, LVDS-0: nvidia-auto-select +0+0"'
+		fi
 
-[ "$MONITOR" = FULLHD ] && \
-	OPTION='"metamodes" "VGA-0: nvidia-auto-select +0+0, LVDS-0: NULL"'
-[ "$MONITOR" = "NTB+FULLHD" ] && \
-	OPTION='"metamodes" "VGA-0: nvidia-auto-select +0+0, LVDS-0: nvidia-auto-select +0+0"'
-
-sudo ed /etc/X11/xorg.conf << EOF
+		sudo ed /etc/X11/xorg.conf << EOF
 ,s/^    Option.*"metamodes".*$/    Option         $OPTION/g
 ,w
 EOF
 
-fi
+	fi
 }
