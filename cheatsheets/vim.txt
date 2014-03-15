@@ -1,79 +1,100 @@
 My vim cheatsheet I made after reading http://www.nti.tul.cz/~satrapa/docs/vim/
 
-Movement
+Motion
 	h j k l
-	home = 0, line begin ^, end $
-	nG jump to row n
-	n| jump to column n
-	fx Fx  tx Tx search character on the line ; , repeat search
+	0 ^ $    home, line begin, end
+	nG    jump to row n
+	n|    jump to column n
+	fx Fx tx Tx    search character on the line ; , repeat search
 	n%
-	w, W beginning of next word
-	e, E end of this word
-	b, B nejbližší předchozí začátek slova
-	( ) beginning, end of a sentence věty
-	{ } beginning, end of a paragraph
-	% matching pair construction
-	+ - row movement
+	w W    start of the next word
+	e E    forward to the end of word
+	b B    backward to the start of word
+	ge gE    backward to the end of word
+	( )    beginning, end of a sentence
+	{ }    beginning, end of a paragraph
+	%    matching pair construction
+	+ -    row movement
+	G    bottom of the file
+	gg    top of the file 
 
 Edit
 	o O a A i I
-	u undo
-	U undo all changes on last edited line
-	Ctrl-R redo					
-	> shift right vpravo < left
-	x X
-	d delete (with move)
-	p P paste
-	c change
-	s substitue
-	y yank, yy yank a line
-	g~ a<->A
-	gu -> a
-	gU -> A
-	. repeat last editation command
-	J join lines
+	u U    undo, all change on last edited line
+	Ctrl-R    redo					
+	> <    shift right, left
+	x X d D dd p P s y yy
+	c    change (with motion)
+	cc C
+	g~    a <-> A
+	gu    -> a
+	gU    -> A
+	.    repeat last editation command
+	J gJ    join lines, no spaces added
+	!motion !!    filter
 
 Search
-	/ forward ? backwards
-	* # occurences of current word
-	n N repeat most recent search
+	/ ?    forward backwards
+	* #    occurences of current word
+	n N    repeat most recent search
+	Ctrl-O Ctrl-I    move in jumplist
 
-Regexes
-	. * \+ \= \< \> \( \) \| \n \2 \_^ \_$
-	<rows>s/<what_to_search>/<substitute_with>/<options> g - all, c - confirmation
+Substitute command :s
+	%    all lines
+	g c    global, confirm
 	
+Programming
+	=    indent text
+
 Misc
-	Ctrl-a Ctrl-x {in|de}crement
+	Ctrl-A Ctrl-X    {in|de}crement
+	K    man
+	qx @x    recording
+	Ctrl-K :digraph
 
 Commands
-	:e edit other file
-	gf edit file whose name is under cursor
-	:r file  insert another file
-	:r !command	insert command output
-	:w >>
-	:w !command	filter through external command
+	:e    edit other file
+	gf    edit file whose name is under cursor
 	:!command
+	:r file    insert another file
+	:r !command    insert command output
+	:w >>
+	:w !command    filter through external command
 	:sh
+	:view    open readonly
+	:args
+	:set number
+	Ctrl-G   file status
+	:set ic   ignore case
 
-Selection
+Visual
 	v V Ctrl-V
-	gv reselect recently selected block
-	o move to other end of selection
+	gv    reselect recently selected block
+	o    move to other end of selection
 
 Format
-	gqj, gq} reformat, gqap
+	gqj gq} gqap
 
-Word completion
-	Základní: Ctrl-N, Ctrl-P
-	Ctrl-X, Ctrl-L - row with the same beginning
-	Ctrl-X, Ctrl-K - search in dictionary
-	Ctrl-X, Ctrl-I - search in included files
-	Ctrl-X, Ctrl-F - file name
-
-Windows
-	vim -o
-	:split file
-	:vsplit
+Windows/tabs
+	vim -o vim -O vim -p
+	:split :vsplit
 	Ctrl-W Ctrl-W
 	Ctrl-W way
-	vim -p - panels
+	vim -p    panels
+
+Marks
+	mx 'x `x
+	Special: ' " [ ]
+
+Word completion
+	Basic: Ctrl-N, Ctrl-P
+	Ctrl-X, Ctrl-L    row with the same beginning
+	Ctrl-X, Ctrl-K    search in dictionary
+	Ctrl-X, Ctrl-I    search in included files
+	Ctrl-X, Ctrl-F    file name
+
+Buffers
+	:buffers :hide
+	- Active
+	- Hidden
+	- Inactive
