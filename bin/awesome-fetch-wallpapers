@@ -1,0 +1,18 @@
+#!/bin/sh
+# Downloads the wallpapers in the resolution 1280x800 (and 1920x1080) and
+# stores them to the folder ./yk/ (and ./ykhd)
+cd ~/.config/awesome/theme/
+yegor-korzh-downloader 1280x800
+yegor-korzh-downloader 1920x1080
+mv ./yk ./yk-old
+mv ./ykhd ./ykhd-old
+mv ./yk-1280x800 ./yk
+mv ./yk-1920x1080 ./ykhd
+
+echo "Would you like me to delete the old wallpapers? (y/n)"
+read ANSWER
+
+if [ "$ANSWER" = y ]; then
+	rm -r yk-old
+	rm -r ykhd-old
+fi

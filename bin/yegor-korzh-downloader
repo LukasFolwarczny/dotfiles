@@ -1,0 +1,20 @@
+#!/bin/bash
+# 2014 Lukáš Folwarczný <lfolwarczny@gmail.com>
+# Automatically downloads the beautiful wallpapers from
+# www.yktravelphoto.com
+
+if [ "$#" = 0 ]; then
+	echo "Usage: "`basename $0`" RESOLUTION
+Supported resolutions:
+1024x768 1280x1024 1280x800 1280x960 1400x1050 1440x900 1600x1200 1680x1050 1920x1080 1920x1200 1920x1440"
+	exit
+fi
+
+RES=$1
+
+wget http://www.yktravelphoto.com/wallpapers/feed/atom/$RES -O feed.xml
+
+grep "<link" feed.xml | sed "s/^.*link.*href=\"//; s/\".*$//; 1d" > links
+
+wget --content-disposition -i links -P "yk-$RES"
+rm links feed.xml
