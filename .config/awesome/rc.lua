@@ -85,7 +85,7 @@ end
 tags = {
 	names = { "lk", "tt", "tu", 4, 5, 6, "thunder", "im", "moc" },
 	layout = { layouts[10], layouts[2], layouts[4],	layouts[1], layouts[9], layouts[3],
-	layouts[10], layouts[12], layouts[7] }
+	layouts[10], layouts[12], layouts[11] }
 }
 
 for s = 1, screen.count() do
@@ -306,6 +306,10 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "XF86Tools", function() awful.util.spawn("urxvt -e mocp") end),
 
     awful.key({ }, "XF86Sleep", function() awful.util.spawn("suspend") end),
+
+	-- This is not optimal because the "moc" tag may be activated by click, but it
+	-- is probably sufficient.
+    awful.key({ modkey }, "9", function() awful.util.spawn_with_shell("trymocp") end),
 
     awful.key({ modkey, "Shift", "Control" }, "l", function() awful.util.spawn("xscreensaver-command --lock", false) end )
 )

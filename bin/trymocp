@@ -1,0 +1,3 @@
+#!/bin/bash
+ps -el | grep --quiet " mocp"
+[ "$?" != 0 ] && urxvt -e mocp
