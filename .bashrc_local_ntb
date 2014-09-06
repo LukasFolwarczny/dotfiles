@@ -13,7 +13,7 @@ if [ -z "$1" ]; then
 fi
 
 MONITOR="$1"
-echo "$MONITOR" > .folwar/monitor
+echo "$MONITOR" > ~/.folwar/monitor
 
 if [ "$MONITOR" != CUSTOM ]; then
 

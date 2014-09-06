@@ -1,4 +1,12 @@
 #!/bin/sh
+if [ $# -gt 0 ]; then
+	cp $1 ~/.config/awesome/theme/wallpaper.jpg
+awesome-client <<EOF
+awesome.restart()
+EOF
+	exit 0
+fi
+
 if [ "$MONITOR" = CUSTOM ]; then
 	exit 0
 fi
@@ -11,3 +19,7 @@ fi
 
 cp $WDIR/`ls $WDIR | sort -R | head -n 1` \
 ~/.config/awesome/theme/wallpaper.jpg
+
+awesome-client <<EOF
+awesome.restart()
+EOF

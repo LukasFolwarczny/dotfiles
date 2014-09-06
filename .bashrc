@@ -29,6 +29,8 @@ alias velikost='du -hd 1'
 alias keyboard-cz='setxkbmap -layout "cz, us" -option "grp:alt_shift_toggle"'
 alias keyboard-ucw='setxkbmap -model pc104 -layout us,cz -variant ,ucw -option grp:caps_switch'
 
+alias mp='mupdf -r 142'
+
 alias gA='git add'
 alias gB='git branch'
 alias gC='git commit'
@@ -59,3 +61,18 @@ function man() {
 
 # Configuration specific for a single machine
 [ -f ~/.bashrc_local ] && source ~/.bashrc_local
+
+# Completion
+
+function tmpsync() {
+	tmpls > ~/.folwar/tmpfiles
+}
+export -f tmpsync
+
+if [ -f ~/.folwar/tmpfiles ]; then
+	IFS=' ' complete -F _tmp_complete tmprm
+	function _tmp_complete() {
+		local cur=${COMP_WORDS[COMP_CWORD]}
+		COMPREPLY=( $(compgen -W "`cat ~/.folwar/tmpfiles`" -- $cur ))
+	}
+fi

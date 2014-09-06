@@ -17,6 +17,7 @@ Motion
 	+ -    row movement
 	G    bottom of the file
 	gg    top of the file 
+	z[Enter] z. z-	move current line to top/middle/bottom of the screen (numeric prefix)
 
 Edit
 	o O a A i I
@@ -26,12 +27,14 @@ Edit
 	x X d D dd p P s y yy
 	c    change (with motion)
 	cc C
-	g~    a <-> A
+	~ g~    a <-> A
 	gu    -> a
 	gU    -> A
 	.    repeat last editation command
 	J gJ    join lines, no spaces added
 	!motion !!    filter
+	"ayy	yank to register a
+	"Ayy	append to register a
 
 Search
 	/ ?    forward backwards
@@ -51,6 +54,8 @@ Misc
 	K    man
 	qx @x    recording
 	Ctrl-K :digraph
+	Ctrl-U Ctrl-D	half screen
+	Ctrl-F Ctrl-B	one screen
 
 Commands
 	:e    edit other file

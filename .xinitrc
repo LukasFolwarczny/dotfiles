@@ -15,6 +15,8 @@ export TERM=rxvt-unicode
 
 dropboxd &
 
+udiskie --tray &
+
 ~/.config/awesome/theme/set-wallpaper.sh
 xscreensaver -no-splash &
 

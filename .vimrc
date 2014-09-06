@@ -24,3 +24,5 @@ highlight Incsearch cterm=NONE ctermfg=black ctermbg=white
 
 set undofile
 set undodir=~/.vim/undodir
+
+nmap <F11> :w<CR>:make!<CR>
