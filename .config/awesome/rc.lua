@@ -306,6 +306,10 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "XF86Tools", function() awful.util.spawn("urxvt -e mocp") end),
 
     awful.key({ }, "XF86Sleep", function() awful.util.spawn("suspend") end),
+    awful.key({ }, "XF86MonBrightnessUp", function() awful.util.spawn("xbacklight -inc 10") end),
+    awful.key({ }, "XF86MonBrightnessDown", function() awful.util.spawn("xbacklight -dec 10") end),
+    awful.key({ }, "XF86Calculator", function() awful.util.spawn("speedcrunch") end),
+    awful.key({ "Shift" }, "XF86Calculator", function() awful.util.spawn_with_shell("$BROWSER http://wolframalpha.com") end),
 
 	-- This is not optimal because the "moc" tag may be activated by click, but it
 	-- is probably sufficient.
